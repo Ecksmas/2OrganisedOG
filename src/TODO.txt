@@ -13,7 +13,6 @@
   int antal av produkter
 3. Ha en lägga till och ta bort funktioner
 4. Sökfunktion som visar vart produkterna finns
-4. Sätt databasen på 8081 och den andra lämna på 8080
 
 -----HTML & CSS-----
 1. Första sidan ska vara små buttons som rep olika rum
@@ -25,3 +24,5 @@
 >>>>>>GÖRA KLART DET ÖVERSTA<<<<<<<<<<
 ------Design-------
 1. Lägga till bilder?
+
+Vardagsrum(01)   Köket(02)   Badrum(03)   Sovrum(04)
