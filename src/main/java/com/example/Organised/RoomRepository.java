@@ -32,5 +32,14 @@ public class RoomRepository {
         return rooms;
     }
 
+    public Room getRoom(String roomPick) {
+        for (Room room : rooms) {
+            if (room.getRoom().equals(roomPick)) {
+                return room;
+            }
+        }
+        return null;
+    }
+
 
 }
