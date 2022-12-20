@@ -11,7 +11,7 @@
   _______________Börja med fokus på dem övre
   int artikelnummer
   int antal av produkter
-3. Ha en lägga till och ta bort funktioner
+3. Ha en lägga till och ta bort funktioner för rum och förvaring
 4. Sökfunktion som visar vart produkterna finns
 
 -----HTML & CSS-----

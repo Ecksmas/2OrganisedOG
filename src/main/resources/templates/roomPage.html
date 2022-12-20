@@ -5,10 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>2Organised</h1>
-<table th:each="room : ${rooms}" style="...">
-    <button th:text="${room.room}"></button>
-</table>
+<h1 th:text="item.room"></h1>
 
 </body>
 </html>
