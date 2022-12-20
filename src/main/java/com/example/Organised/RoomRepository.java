@@ -8,7 +8,6 @@ import java.util.List;
 @Repository
 public class RoomRepository {
     private List<Room> rooms;
-
     public RoomRepository() {
         rooms = new ArrayList<>();
         Room vardagsrum = new Room("Vardagsrum");
@@ -40,6 +39,7 @@ public class RoomRepository {
         }
         return null;
     }
+
 
 
 }

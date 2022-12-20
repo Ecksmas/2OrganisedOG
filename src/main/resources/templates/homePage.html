@@ -7,7 +7,9 @@
 <body>
 <h1>2Organised</h1>
 <table th:each="room : ${rooms}" style="...">
-    <button th:ref="'/' + ${room.room}" th:text="${room.room}"></button>
+    <button>
+        <a th:href="'/' + ${room.room}" th:text="${room.room}"></a>
+    </button>
 </table>
 
 </body>

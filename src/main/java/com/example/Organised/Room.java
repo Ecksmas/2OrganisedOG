@@ -13,6 +13,8 @@ public class Room {
     public Room(String room) {
         this.room = room;
     }
+    public Room() {
+    }
 
     public void addItemToRoom(Item item) {
         items.add(item);

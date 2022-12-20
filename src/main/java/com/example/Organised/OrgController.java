@@ -25,11 +25,13 @@ public class OrgController {
     }
 
     @GetMapping("/{room}")
-    String roomPage(Model model, @PathVariable String roomPick) {
-        Room room = repository.getRoom(roomPick);
-        model.addAttribute("roomPage", room);
+    String roomPage(Model model, @PathVariable String room) {
+        Room roomPick = repository.getRoom(room);
+        model.addAttribute("room", room);
 
         return "roomPage";
     }
+
+
 
 }

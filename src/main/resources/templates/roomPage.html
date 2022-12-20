@@ -5,14 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Room</h1>
-<!---
+<h1 th:text="${room}">Room</h1>
 <table>
-    <h1>Items in room</h1>
+    <h2>Items in room</h2>
     <tr th:each="item : ${items}">
-        <th th:text="${item.item}"></th>
+        <th th:text="${item.items}"></th>
     </tr>
 </table>
---->
 </body>
 </html>
