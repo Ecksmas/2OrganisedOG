@@ -1,0 +1,29 @@
+Team name:
+2organised
+
+Short description of the project:
+En organiseringssite vars syfte är till att organisera prylar i hemmet
+Vi är här för att hjälpa dig att organisera dina prylar.
+
+Vi vet att det kan vara svårt att hålla reda på alla olika prylar i ditt hem, från datorer till telefoner till kameror. 
+Vi vet också att det inte alltid är lätt att hitta rätt plats för varje pryl,
+för kanske en surfplatta inte hör hemma i en bokhylla med böcker eller så ska en väckarklocka inte stå i köket bredvid andra apparater.
+
+Vi är här för att hjälpa till.
+Vårt mål är enkelt: vi vill se till att dina prylar är där de hör hemma så att du kan njuta av dem och använda dem när du behöver dem som mest.
+
+
+Must-have features:
+Organisering
+Lista till att lägga till och ta bort produkter
+Knappar
+Sökfunktion
+
+
+Nice-to-have features:
+Design
+Frontend
+Gå in och välja "rum"
+
+The link to your public GitHub repo:
+https://github.com/Ecksmas/2OrganisedOG
