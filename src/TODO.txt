@@ -1,0 +1,27 @@
+//TODO
+
+-----JAVA------
+1. Skapa en stor databas
+  1.1 Hårdkoda en databas som bookrepo
+  1.2 Skapa olika ID för rum och typ av förvaring
+2. Attributes:
+  string ID för rum 
+  string typ av förvaring (typ kålskåp)
+  String Namn
+  _______________Börja med fokus på dem övre
+  int artikelnummer
+  int antal av produkter
+3. Ha en lägga till och ta bort funktioner
+4. Sökfunktion som visar vart produkterna finns
+4. Sätt databasen på 8081 och den andra lämna på 8080
+
+-----HTML & CSS-----
+1. Första sidan ska vara små buttons som rep olika rum
+2. Knapparna klickar in sig i en mer detaljerad av rummet tex i köket finns det ett kylskåp, frys osv som håller i olika saker
+   2.2 Planka av level 2 gnomes
+3. Startsida -> Rum -> Förvaring -> Lista med object
+4. Skapa en navigeringsbar
+
+>>>>>>GÖRA KLART DET ÖVERSTA<<<<<<<<<<
+------Design-------
+1. Lägga till bilder?
