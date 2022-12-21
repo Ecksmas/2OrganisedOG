@@ -59,4 +59,11 @@ public class RoomRepository {
         return room;
     }
 
+    public void deleteRoom(Room room) {
+        Room roomToDelete = this.room;
+        if (roomToDelete != null) {
+            rooms.remove(roomToDelete);
+        }
+    }
+
 }
