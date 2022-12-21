@@ -5,15 +5,23 @@
     <title>Title</title>
     <link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
 </head>
-<header><center><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%"></center></header>
+<header>
+    <center><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%"></center>
+</header>
 
 <body>
+<form action="/addItem" th:object="${room}" method="POST">
+    Title: <input type="text" th:field="*{room}"/>
+    <input type="submit" value="Add item">
+</form>
+
 <h1 th:text="${room.room}">Room</h1>
 <table>
     <h2>Items in room</h2>
     <tr th:each="item : ${room.items}">
         <th th:text="${item.item}"></th>
-
 </table>
+
+
 </body>
 </html>

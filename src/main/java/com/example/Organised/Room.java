@@ -16,8 +16,9 @@ public class Room {
     public Room() {
     }
 
-    public void addItemToRoom(Item item) {
-        items.add(item);
+    public Item addItemToRoom(Item item) {
+       items.add(item);
+        return item;
     }
 
     public String getRoom() {

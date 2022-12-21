@@ -48,6 +48,13 @@ public class OrgController {
         return "form";
     }
 
+    @GetMapping("/addItem")
+    String addItem(Model model) {
+        Room itemRoom = new Room();
+        model.addAttribute("item", itemRoom.addItemToRoom(new Item()));
+        return "form";
+    }
+
     @PostMapping("/save")
     public String set(@ModelAttribute Room room) {
             repository.addRoom(room); // todo replace with call POST /book (with book object as json in request body)
