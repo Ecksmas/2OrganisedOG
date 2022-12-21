@@ -19,7 +19,7 @@ public class RoomRepository {
         vardagsrum.addItemToRoom(new Item("Bord"));
         rooms.add(vardagsrum);
 
-        Room koket = new Room("Köket");
+        Room koket = new Room("Koket");
         koket.addItemToRoom(new Item("Mjölk 1.5L")); //Upprepa för att lägga in mer
         koket.addItemToRoom(new Item("Bröd"));
         koket.addItemToRoom(new Item("Knäckebröd"));

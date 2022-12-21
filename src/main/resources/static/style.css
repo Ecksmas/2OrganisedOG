@@ -24,3 +24,15 @@
 	top:1px;
 }
 
+.searchList {
+  border: 1px 0px solid #c6824b; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #ffffff; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+.searchList:hover

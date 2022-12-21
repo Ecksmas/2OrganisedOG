@@ -6,8 +6,7 @@ public class Item {
     public Item(String item) {
         this.item = item;
     }
-    public Item() {
-    }
+
     public String getItem() {
         return item;
     }

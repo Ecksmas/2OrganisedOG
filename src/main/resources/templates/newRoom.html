@@ -19,21 +19,23 @@
 </header>
 
 <body>
-<center>
-<img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%"></center>
-<br><br>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Sök produkter">
-<ul id="myUL">
-  <li><a href="#">Grej 1</a></li>
-  <li><a href="#">Grej 2</a></li>
 
-  <li><a href="#">Grej 3</a></li>
-  <li><a href="#">Grej 4</a></li>
+<h2 align="center">Goa lelle sökningen</h2>
+<form th:action="@{/search}" method="get">
+    <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by Owner Name & Shop Type" size="50" >
+    <button type="submit" class="btn btn-info" >Search</button>
+    <button type="submit" class="btn btn-info" >Reset</button>
+</form>
+<table>
 
-  <li><a href="#">Grej 5</a></li>
-  <li><a href="#">Grej 6</a></li>
-  <li><a href="#">Grej 7</a></li>
-</ul>
+
+    <tr th:each="item : ${room.items}">
+        <th th:text="${item.item}"></th>
+        <th><a th:href="'/deleteItem?room=' + ${room.room} + '&' + 'item='+ ${item.item}">Delete</a></th>
+    </tr>
+
+</table>
+
 </body>
 </html>
 

@@ -82,9 +82,10 @@ public class OrgController {
 
     @GetMapping("/deleteItem")
     public String deleteItem(@RequestParam String room, @RequestParam String item) {
-        Room delete = repository.getRoom(room);
-        delete.deleteItem(item);
-        return "roomPage";
+        Room roomToDeleteFrom = repository.getRoom(room);
+        Item itemToDelete = roomToDeleteFrom.getItem(item);
+        roomToDeleteFrom.deleteItem(itemToDelete);
+        return "redirect:/room/" + roomToDeleteFrom.getRoom();
 
     }
 }

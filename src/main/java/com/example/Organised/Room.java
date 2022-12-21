@@ -10,18 +10,26 @@ public class Room {
     public List<Item> getItems() {
         return items;
     }
+
+
     public Room(String room) {
         this.room = room;
     }
-    public Room() {
-    }
-
+    public Room() {    }
     public Item addItemToRoom(Item item) {
        items.add(item);
         return item;
     }
 
-    public void deleteItem(String item) {
+    public Item getItem(String itemPick) {
+        for (Item item : items) {
+            if (item.getItem().equals(itemPick)) {
+                return item;
+            }
+        }
+        return null;
+    }
+    public void deleteItem(Item item) {
         items.remove(item);
     }
 
