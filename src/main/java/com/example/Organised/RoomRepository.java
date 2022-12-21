@@ -11,19 +11,19 @@ public class RoomRepository {
     public RoomRepository() {
         rooms = new ArrayList<>();
         Room vardagsrum = new Room("Vardagsrum");
-        vardagsrum.getItemList().add(new Item("Kontroll")); //Upprepa för att lägga in mer
+        vardagsrum.addItemToRoom(new Item("Kontroll")); //Upprepa för att lägga in mer
         rooms.add(vardagsrum);
 
         Room koket = new Room("Köket");
-        koket.getItemList().add(new Item("Mjölk 1.5L")); //Upprepa för att lägga in mer
+        koket.getItems().add(new Item("Mjölk 1.5L")); //Upprepa för att lägga in mer
         rooms.add(koket);
 
         Room badrum = new Room("Badrum");
-        badrum.getItemList().add(new Item("Tandborste")); //Upprepa för att lägga in mer
+        badrum.getItems().add(new Item("Tandborste")); //Upprepa för att lägga in mer
         rooms.add(badrum);
 
         Room sovrum = new Room("Sovrum");
-        sovrum.getItemList().add(new Item("Ipren")); //Upprepa för att lägga in mer
+        sovrum.getItems().add(new Item("Ipren")); //Upprepa för att lägga in mer
         rooms.add(sovrum);
     }
 

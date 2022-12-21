@@ -7,7 +7,7 @@ public class Room {
     String room;
     List<Item> items = new ArrayList<>();
 
-    public List<Item> getItemList() {
+    public List<Item> getItems() {
         return items;
     }
     public Room(String room) {
