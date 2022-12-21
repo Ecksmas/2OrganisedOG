@@ -12,18 +12,29 @@ public class RoomRepository {
         rooms = new ArrayList<>();
         Room vardagsrum = new Room("Vardagsrum");
         vardagsrum.addItemToRoom(new Item("Kontroll")); //Upprepa för att lägga in mer
+        vardagsrum.addItemToRoom(new Item("Kuddar"));
+        vardagsrum.addItemToRoom(new Item("Soffa"));
+        vardagsrum.addItemToRoom(new Item("Stolar"));
+        vardagsrum.addItemToRoom(new Item("Bord"));
         rooms.add(vardagsrum);
 
         Room koket = new Room("Köket");
-        koket.getItems().add(new Item("Mjölk 1.5L")); //Upprepa för att lägga in mer
+        koket.addItemToRoom(new Item("Mjölk 1.5L")); //Upprepa för att lägga in mer
+        koket.addItemToRoom(new Item("Bröd"));
+        koket.addItemToRoom(new Item("Knäckebröd"));
+        koket.addItemToRoom(new Item("Vispgrädde"));
         rooms.add(koket);
 
         Room badrum = new Room("Badrum");
-        badrum.getItems().add(new Item("Tandborste")); //Upprepa för att lägga in mer
+        badrum.addItemToRoom(new Item("Tandborste")); //Upprepa för att lägga in mer
+        badrum.addItemToRoom(new Item("Toalettpapper"));
+        badrum.addItemToRoom(new Item("Tandkräm"));
+        badrum.addItemToRoom(new Item("Shampoo"));
         rooms.add(badrum);
 
         Room sovrum = new Room("Sovrum");
-        sovrum.getItems().add(new Item("Ipren")); //Upprepa för att lägga in mer
+        sovrum.addItemToRoom(new Item("Ipren")); //Upprepa för att lägga in mer
+        sovrum.addItemToRoom(new Item("Bibel"));
         rooms.add(sovrum);
     }
 
