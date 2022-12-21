@@ -8,7 +8,10 @@
 </head>
 <body>
 <center>
-<img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
+    <a href="/">
+        <img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
+    </a>
+
 <br><br>
 <row th:each="room : ${rooms}" style="...">
         <a class="link1" th:href="'/room/' + ${room.room}" th:text="${room.room}"></a>

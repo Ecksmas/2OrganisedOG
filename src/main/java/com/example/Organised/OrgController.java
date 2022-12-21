@@ -23,7 +23,7 @@ public class OrgController {
         model.addAttribute("rooms", rooms);
 
 
-        return "homePage";
+        return "index";
     }
 
     @GetMapping("/room/{room}")
@@ -32,7 +32,7 @@ public class OrgController {
         model.addAttribute("room", roomPick);
 
 
-        return "roomPage";
+        return "newRoom";
     }
     @GetMapping("/hejhej/{room}")
     String newRoom(Model model, @PathVariable String room) {
