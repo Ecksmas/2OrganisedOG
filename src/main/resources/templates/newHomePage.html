@@ -14,19 +14,24 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 
-<body>
-<center>
-<header>
-    <br>
-    <a href="/"><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
-    </a>
-    <h1 th:text="${room.room}">Room</h1></header>
-    <h1>Add a new room</h1>
 
-    <form action="/save" th:object="${room}" method="POST">
-        Title: <input type="text" th:field="*{room}"/>
-        <input type="submit" value="Save room">
-    </form>
-</center>
+<body>
+<header>
+    <center>
+        <!-- HEADER LOGOTYP                         ---------------------->
+       <br> <a href="/"> <img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%"></a>
+        <h1> 2 Organized</h1>
+        <h4><em>- vi håller koll på grejerna</em></h4></center></header>
+<div class="container">
+
+        <center>
+            <a class="button button-primary" th:each="room : ${rooms}" style="..." th:href="'/room/' + ${room.room}"
+               th:text="${room.room}"></a>
+            <a class="button" th:href="'/add'">Add</a>
+        </center></div>
+
+
+
+
 </body>
 </html>

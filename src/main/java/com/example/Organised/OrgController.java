@@ -18,27 +18,14 @@ public class OrgController {
     @GetMapping("/")
     String homePage(Model model) {
         List<Room> rooms = repository.getRooms();
-
-
         model.addAttribute("rooms", rooms);
-
-
-        return "homePage";
+        return "newHomePage";
     }
 
     @GetMapping("/room/{room}")
     String roomPage(Model model, @PathVariable String room) {
         Room roomPick = repository.getRoom(room);
         model.addAttribute("room", roomPick);
-
-
-        return "roomPage";
-    }
-    @GetMapping("/hejhej/{room}")
-    String newRoom(Model model, @PathVariable String room) {
-        List<Room> rooms = repository.getRooms();
-
-        model.addAttribute("rooms", rooms);
 
 
         return "newRoom";
@@ -56,11 +43,7 @@ public class OrgController {
         return "redirect:/";
     }
 
-   /*() @GetMapping("/add")
-    String add(Model model) {
-        model.addAttribute("room", new Room());
-        return "form";
-    }*/
+
 
 
     @PostMapping("/addItem")
@@ -68,7 +51,7 @@ public class OrgController {
       Room roomItem = repository.getRoom(room);
       roomItem.addItemToRoom(new Item(item));
       model.addAttribute("room", roomItem);
-      return "roomPage";
+      return "newRoom";
     }
 
 

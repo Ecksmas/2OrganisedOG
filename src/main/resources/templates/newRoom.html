@@ -1,41 +1,76 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-  <link rel="stylesheet" href="../static/listStyle.css" th:href="'/listStyle.css'">
-    <link rel="stylesheet" href="../static/breadcrums.css" th:href="'/breadcrums.css'">
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>2 Organized - när du behöver ordning</title>
+
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/styleNew.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
 </head>
-<header></header>
-
-<ul class="breadcrumb">
-    <li><a href="#">Container</a></li>
-    <li><a href="#">Rum</a></li>
-    <li>Startsida</li>
-</ul>
-</header>
-
 <body>
+<header>
+    <br><center>
+    <a href="/"><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
+        </a>
+    <h1 th:text="${room.room}">Room</h1></center></header>
 
-<h2 align="center">Goa lelle sökningen</h2>
-<form th:action="@{/search}" method="get">
-    <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by Owner Name & Shop Type" size="50" >
-    <button type="submit" class="btn btn-info" >Search</button>
-    <button type="submit" class="btn btn-info" >Reset</button>
+    <center>
+<form action="/addItem" method="POST">
+    <input type="hidden" name="room" th:value="${room.room}">
+    <input type="text" name="item"/>
+    <input type="submit" value="Add item">
 </form>
-<table>
+    <table class="u-full-width">
+    <thead>
+    <tr>
+        <h4><th>I det här rummet finns: </th>
+        <th>&ensp;&ensp;&ensp;&ensp;</th></h4>
+    </tr></thead>
+    <tbody>
 
-
-    <tr th:each="item : ${room.items}">
+    <tr th:each="item : ${room.items}"></th>
         <th th:text="${item.item}"></th>
-        <th><a th:href="'/deleteItem?room=' + ${room.room} + '&' + 'item='+ ${item.item}">Delete</a></th>
-    </tr>
-
+        <th><a th:href="'/deleteItem?room=' + ${room.room} + '&' + 'item='+ ${item.item}"><i class="material-icons">delete</i></a></th>
+    </tr></tbody>
 </table>
 
+
+<div>
+    <a class="button" th:href="'/delete?room=' + ${room.room}">Delete room</a>
+</div></center>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
+
+
+
+
+
+
+
+
 
