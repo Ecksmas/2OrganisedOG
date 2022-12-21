@@ -73,15 +73,18 @@ public class OrgController {
 
 
 
-    @GetMapping("/delete") //Behöver lösa funktionen
+    @GetMapping("/delete")
     public String deleteRoom(@RequestParam String room) {
         Room delete = repository.getRoom(room);
         repository.deleteRoom(delete);
         return "redirect:/";
     }
 
-    /*@GetMapping("/deleteItem")
+    @GetMapping("/deleteItem")
     public String deleteItem(@RequestParam String room, @RequestParam String item) {
+        Room delete = repository.getRoom(room);
+        delete.deleteItem(item);
+        return "roomPage";
 
-    }*/
+    }
 }

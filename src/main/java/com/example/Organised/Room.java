@@ -21,6 +21,11 @@ public class Room {
         return item;
     }
 
+    public void deleteItem(String item) {
+        items.remove(item);
+    }
+
+
     public String getRoom() {
         return room;
     }

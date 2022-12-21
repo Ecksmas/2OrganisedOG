@@ -12,7 +12,7 @@
 <body>
 <form action="/addItem" method="POST">
     <input type="hidden" name="room" th:value="${room.room}">
-    Title: <input type="text" name="item"/>
+    <input type="text" name="item"/>
     <input type="submit" value="Add item">
 </form>
 
@@ -21,6 +21,8 @@
     <h2>Items in room</h2>
     <tr th:each="item : ${room.items}">
         <th th:text="${item.item}"></th>
+        <th><a th:href="'/deleteItem?room=' + ${room.room} + '&' + 'item='+ ${item.item}">Delete</a></th>
+    </tr>
 </table>
 
 
