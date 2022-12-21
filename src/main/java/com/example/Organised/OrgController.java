@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -29,16 +31,29 @@ public class OrgController {
         Room roomPick = repository.getRoom(room);
         model.addAttribute("room", roomPick);
 
+
         return "roomPage";
     }
-    @GetMapping("/hejhej")
-    String newRoom(Model model) {
+    @GetMapping("/hejhej/{room}")
+    String newRoom(Model model, @PathVariable String room) {
         List<Room> rooms = repository.getRooms();
 
         model.addAttribute("rooms", rooms);
 
 
         return "newRoom";
+    }
+
+    @GetMapping("/add")
+    String add(Model model) {
+        model.addAttribute("room", new Room());
+        return "form";
+    }
+
+    @PostMapping("/save")
+    public String set(@ModelAttribute Room room) {
+            repository.addRoom(room); // todo replace with call POST /book (with book object as json in request body)
+        return "redirect:/";
     }
 
 

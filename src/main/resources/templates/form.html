@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Books</title>
+</head>
+<body>
+    <h1>Add a new room</h1>
+
+    <form action="/save" th:object="${room}" method="POST">
+        Title: <input type="text" th:field="*{room}"/>
+        <input type="submit" value="Save room">
+    </form>
+
+</body>
+</html>
