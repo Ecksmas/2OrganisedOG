@@ -52,6 +52,12 @@ public class RoomRepository {
         return null;
     }
 
+    public void addItem(String item) {
+        Room room = new Room();
+        room.addItemToRoom(new Item(item));
+
+    }
+
     public Room addRoom(Room room) {
         if (rooms.size() < 10) {
             rooms.add(room);
@@ -60,7 +66,7 @@ public class RoomRepository {
     }
 
    public void deleteRoom(Room room) {
-        rooms.remove(rooms.lastIndexOf(room));
+        rooms.remove(room);
     }
 
 }

@@ -10,8 +10,9 @@
 </header>
 
 <body>
-<form action="/addItem" th:object="${room}" method="POST">
-    Title: <input type="text" th:field="*{room}"/>
+<form action="/addItem" method="POST">
+    <input type="hidden" name="room" th:value="${room.room}">
+    Title: <input type="text" name="item"/>
     <input type="submit" value="Add item">
 </form>
 
@@ -22,6 +23,10 @@
         <th th:text="${item.item}"></th>
 </table>
 
+
+<div>
+    <a class="link1" th:href="'/delete?room=' + ${room.room}">Delete</a>
+</div>
 
 </body>
 </html>
