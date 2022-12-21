@@ -3,10 +3,7 @@ package com.example.Organised;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +16,7 @@ public class OrgController {
     @GetMapping("/")
     String homePage(Model model) {
         List<Room> rooms = repository.getRooms();
+
 
         model.addAttribute("rooms", rooms);
 
@@ -55,6 +53,15 @@ public class OrgController {
             repository.addRoom(room); // todo replace with call POST /book (with book object as json in request body)
         return "redirect:/";
     }
+
+
+
+    @DeleteMapping("/delete/{room}")
+    public void delete(@PathVariable Room room) {
+        repository.deleteRoom(room);
+    }
+
+
 
 
 
