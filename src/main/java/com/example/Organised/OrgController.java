@@ -56,13 +56,9 @@ public class OrgController {
 
 
 
-    @DeleteMapping("/delete/{room}")
-    public void delete(@PathVariable Room room) {
+    @DeleteMapping("/delete") //Behöver lösa funktionen
+    public String delete(Room room) {
         repository.deleteRoom(room);
+        return "redirect:/";
     }
-
-
-
-
-
 }
