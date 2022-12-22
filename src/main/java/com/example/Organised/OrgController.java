@@ -52,7 +52,7 @@ public class OrgController {
 
     @PostMapping("/save")
     public String set(@ModelAttribute Room room) {
-            repository.addRoom(room); // todo replace with call POST /book (with book object as json in request body)
+            repository.addRoom(room);
         return "redirect:/";
     }
 
