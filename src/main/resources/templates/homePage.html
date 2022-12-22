@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
+
+</head>
+<body>
+<center>
+    <a href="/">
+        <img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
+    </a>
+
+<br><br>
+<row th:each="room : ${rooms}" style="...">
+        <a class="link1" th:href="'/room/' + ${room.room}" th:text="${room.room}"></a>
+
+</row></center>
+
+
+<a class="link1" th:href="'/add'" >Add</a>
+
+
+</body>
+</html>
