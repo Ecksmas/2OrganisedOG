@@ -14,7 +14,7 @@ public class OrgController {
     @Autowired
     RoomRepository repository;
 
-    //STARTSIDA
+    //Startsida
     @GetMapping("/")
     String homePage(Model model) {
         List<Room> rooms = repository.getRooms();
@@ -22,6 +22,7 @@ public class OrgController {
         return "newHomePage";
     }
 
+    //Rum-sida
     @GetMapping("/room/{room}")
     String roomPage(Model model, @PathVariable String room) {
         Room roomPick = repository.getRoom(room);
@@ -31,6 +32,7 @@ public class OrgController {
         return "newRoom";
     }
 
+    //Lägga till ett nytt rum på startsidan.
     @GetMapping("/add")
     String add(Model model) {
         model.addAttribute("room", new Room());
@@ -45,7 +47,7 @@ public class OrgController {
 
 
 
-
+    //Lägga till item i resp rum.
     @PostMapping("/addItem")
     public String setItem(Model model, @RequestParam String room, @RequestParam String item) {
       Room roomItem = repository.getRoom(room);
@@ -55,7 +57,7 @@ public class OrgController {
     }
 
 
-
+    //Ta bort rum
     @GetMapping("/delete")
     public String deleteRoom(@RequestParam String room) {
         Room delete = repository.getRoom(room);
@@ -63,6 +65,7 @@ public class OrgController {
         return "redirect:/";
     }
 
+    //Ta bort items i resp rum.
     @GetMapping("/deleteItem")
     public String deleteItem(@RequestParam String room, @RequestParam String item) {
         Room roomToDeleteFrom = repository.getRoom(room);

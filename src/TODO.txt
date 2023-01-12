@@ -26,3 +26,17 @@
 1. Lägga till bilder?
 
 Vardagsrum(01)   Köket(02)   Badrum(03)   Sovrum(04)
+
+
+SPRINT 02 - Addera databas:
+
+- Lägga till databas till applikationen.
+    1. JPA
+        - CHECK - Lägga till entity (annotationer som id, generated value)
+        - Skapa ett interface och nya metoder som ersätter de befintliga i room repository.
+        - Autowirea det nya repository:et
+        - CHECK - Lägga till pom.xml
+        - Skapa en data.sql-fil med förutbestämda rooms och items.
+    2. Er-diagram
+
+

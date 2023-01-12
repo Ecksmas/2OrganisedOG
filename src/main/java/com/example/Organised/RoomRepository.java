@@ -9,6 +9,7 @@ import java.util.List;
 public class RoomRepository {
     private List<Room> rooms;
 
+    //FLYTTAS TILL DATA.SQL
     public RoomRepository() {
         rooms = new ArrayList<>();
         Room vardagsrum = new Room("Vardagsrum");
@@ -39,10 +40,12 @@ public class RoomRepository {
         rooms.add(sovrum);
     }
 
+    //FINDALLBYID
     public List<Room> getRooms() {
         return rooms;
     }
 
+    //FINDBYID
     public Room getRoom(String roomPick) {
         for (Room room : rooms) {
             if (room.getRoom().equals(roomPick)) {
@@ -52,6 +55,8 @@ public class RoomRepository {
         return null;
     }
 
+
+    //SAVE
     public Room addRoom(Room room) {
         if (rooms.size() < 10) {
             rooms.add(room);
@@ -59,6 +64,7 @@ public class RoomRepository {
         return room;
     }
 
+    //DELETE
    public void deleteRoom(Room room) {
         rooms.remove(room);
     }
