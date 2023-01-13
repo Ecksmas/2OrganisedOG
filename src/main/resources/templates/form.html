@@ -20,11 +20,13 @@
     <br>
     <a href="/"><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
     </a>
-    <h1 th:text="${room.room}">Room</h1></header>
+    <h1 th:text="${room.roomName}">Room</h1>
+</header>
+
     <h1>Add a new room</h1>
 
     <form action="/save" th:object="${room}" method="POST">
-        Title: <input type="text" th:field="*{room}"/>
+        Title: <input type="text" th:field="*{roomName}"/>
         <input type="submit" value="Save room">
     </form>
 </center>

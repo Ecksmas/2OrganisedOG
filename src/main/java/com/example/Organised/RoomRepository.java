@@ -1,10 +1,11 @@
+
 package com.example.Organised;
 
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
 @Repository
 public class RoomRepository {
     private List<Room> rooms;
@@ -70,3 +71,4 @@ public class RoomRepository {
     }
 
 }
+*/

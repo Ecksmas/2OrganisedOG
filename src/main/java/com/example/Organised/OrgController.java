@@ -2,34 +2,34 @@ package com.example.Organised;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class OrgController {
 
     @Autowired
-    OgRoomRepository repository;
+    private OgRoomRepository repository;
+
+    @Autowired
+    private ItemRepository itemRepository;
 
     //Startsida
-    //FINDALLBYID
     @GetMapping("/")
     String homePage(Model model) {
-        List<Room> rooms = (List<Room>)repository.findAll();
+        List<Room> rooms = (List<Room>)repository.findAll(); //Ska testas
         model.addAttribute("rooms", rooms);
         return "newHomePage";
     }
 
     //Rum-sida
-   /* @GetMapping("/room/{room}")
-    String roomPage(Model model, @PathVariable String room) {
-        Room roomPick = repository.getRoom(room);
-        model.addAttribute("room", roomPick);
-
-
+   @GetMapping("/room/{id}")
+    String roomPage(Model model, @PathVariable Long id) {
+        Room room = repository.findById(id).get();
+        model.addAttribute("room", room);
         return "newRoom";
     }
 
@@ -42,22 +42,38 @@ public class OrgController {
 
     @PostMapping("/save")
     public String set(@ModelAttribute Room room) {
-            repository.addRoom(room); // todo replace with call POST /book (with book object as json in request body)
+            repository.save(room); // todo replace with call POST /book (with book object as json in request body)
         return "redirect:/";
     }
 
-
-
-    //Lägga till item i resp rum.
-    @PostMapping("/addItem")
-    public String setItem(Model model, @RequestParam String room, @RequestParam String item) {
-      Room roomItem = repository.getRoom(room);
-      roomItem.addItemToRoom(new Item()); //Tagit bort namn "item" pga ändring i constructorn.
-      model.addAttribute("room", roomItem);
-      return "newRoom";
+    //Lägga till item till rum
+    @GetMapping("/addItem")
+    public String addItem(Model model){
+        model.addAttribute("item", new Item());
+        return "newRoom";
     }
 
+    @PostMapping("/saveItem")
+    public String setItem (@ModelAttribute Item item, @RequestParam Long id) {
+        Room roomId = repository.findById(id).get();
+        item.setRoom(roomId);
+        itemRepository.save(item);
+        return "newRoom";
+    }
 
+  /*  //Spara item till ett rum
+    @PostMapping("/saveItem")
+    public String setItem(Model model, @RequestParam String room, @RequestParam String item) { //Tagit bort String room från param och Long id i slutet.
+      Room roomId = repository.findById(id).get();
+
+      itemRepository.save(itemName);
+      //Item item1 = new Item();
+      //roomId.addItemToRoom(new Item()); //Tagit bort namn "item" pga ändring i constructorn.
+      model.addAttribute("room", roomId);
+      return "redirect:/newRoom";
+    }*/
+
+/*
     //Ta bort rum
     @GetMapping("/delete")
     public String deleteRoom(@RequestParam String room) {

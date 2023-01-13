@@ -20,13 +20,13 @@
     <center>
         <!-- HEADER LOGOTYP                         ---------------------->
        <br> <a href="/"> <img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%"></a>
-        <h1> 2 Organized</h1>
-        <h4><em>- vi håller koll på grejerna</em></h4></center></header>
+        <h1>2 Organized</h1>
+        <p><em>- vi håller koll på grejerna</em></p></center></header>
 <div class="container">
 
         <center>
-            <a class="button button-primary" th:each="room : ${rooms}" style="..." th:href="'/room/' + ${room.room}"
-               th:text="${room.room}"></a>
+            <a class="button button-primary" th:each="room : ${rooms}" style="..." th:href="'/room/' + ${room.id}"
+               th:text="${room.roomName}"></a>
             <a class="button" th:href="'/add'">Add</a>
         </center></div>
 

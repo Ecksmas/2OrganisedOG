@@ -33,33 +33,39 @@
     <br><center>
     <a href="/"><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
         </a>
-    <h1 th:text="${room.room}">Room</h1></center></header>
+    <h1 th:text="${room.roomName}">Room</h1></center>
+</header>
 
+<!--FORM för att lägga till ett item i ett rum-->
     <center>
-<form action="/addItem" method="POST">
-    <input type="hidden" name="room" th:value="${room.room}">
-    <input type="text" name="item"/>
+<form action="/saveItem" method="POST">
+    <input type="hidden" name="room" th:value="${room.id}">
+    <input type="text" name="itemName"/>
     <input type="submit" value="Add item">
 </form>
-    <table class="u-full-width">
-    <thead>
-    <tr>
-        <h4><th>I det här rummet finns: </th>
-        <th>&ensp;&ensp;&ensp;&ensp;</th></h4>
-    </tr></thead>
-    <tbody>
 
-    <tr th:each="item : ${room.items}"></th>
-        <th th:text="${item.item}"></th>
-        <th><a th:href="'/deleteItem?room=' + ${room.room} + '&' + 'item='+ ${item.item}"><i class="material-icons">delete</i></a></th>
-    </tr></tbody>
+
+        <!--TABLE visar alla items i rummet-->
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <h4><th>I det här rummet finns: </th>
+            <th>&ensp;&ensp;&ensp;&ensp;</th></h4>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="item : ${room.itemList}"></th>
+            <th th:text="${item.itemName}"></th>
+         <!-- <th><a th:href="'/deleteItem?room=' + ${room.room} + '&' + 'item='+ ${item.item}"><i class="material-icons">delete</i></a></th>-->
+        </tr>
+    </tbody>
 </table>
 
-
+<!--
 <div>
     <a class="button" th:href="'/delete?room=' + ${room.room}">Delete room</a>
 </div></center>
-
+-->
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

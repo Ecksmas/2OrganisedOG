@@ -1,39 +1,64 @@
 package com.example.Organised;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 @Entity
+@Table(name="ROOM")
 public class Room {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String room;
-    List<Item> items = new ArrayList<>();
+    @Column(name = "ID")
+    private Long id;
+    @Column(name = "NAME")
+    private String roomName;
 
-    public List<Item> getItems() {
-        return items;
-    }
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
+    private List<Item> itemList = new ArrayList<>();
 
+  //  private List<Item> items = new ArrayList<>();
 
-    public Room(Long id, String room) {
-        this.id = id;
-        this.room = room;
-    }
-
-    public Room(String room) { //Ska raderas när databas flyttats och interface aktiverats.
-            this.room = room;
-    }
+    //TOM CONSTRUCTOR
     public Room() {
-
     }
-    //SAVE
+
+
+    //CONSTRUCTOR
+    public Room(Long id, String roomName) {
+        this.id = id;
+        this.roomName = roomName;
+    }
+
+
+    //GETTERS OCH SETTERS
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
+    }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+
+
+    //FUNCTIONER
+
+    /*    //SAVE
     public Item addItemToRoom(Item item) {
        items.add(item);
         return item;
@@ -49,24 +74,13 @@ public class Room {
         return null;
     }
 
+    public List<Item> getItems() {
+        return items;
+    }
+
     //DELETE
     public void deleteItem(Item item) {
         items.remove(item);
-    }
+    }*/
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getRoom() {
-        return room;
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
-    }
 }

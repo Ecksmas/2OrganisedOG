@@ -1,25 +1,25 @@
 package com.example.Organised;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name="ITEM")
 public class Item {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
+    private Long id;
+    @Column(name = "NAME")
+    private String itemName;
+    @ManyToOne ()
+    private Room room;
 
-    public Item(Long id, String name) {
+    public Item(Long id, String itemName) {
         this.id = id;
-        this.name = name;
+        this.itemName = itemName;
     }
 
-    public Item(String name) { //Ska raderas när databas flyttats och interface aktiverats.
-        this.name = name;
+    public Item(String itemName) { //Ska raderas när databas flyttats och interface aktiverats.
+        this.itemName = itemName;
     }
 
     public Item() {
@@ -32,12 +32,19 @@ public class Item {
         this.id = id;
     }
 
-
-    public String getName() {
-        return name;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }
