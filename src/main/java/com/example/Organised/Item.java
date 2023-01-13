@@ -18,6 +18,10 @@ public class Item {
         this.name = name;
     }
 
+    public Item(String name) { //Ska raderas när databas flyttats och interface aktiverats.
+        this.name = name;
+    }
+
     public Item() {
     }
 

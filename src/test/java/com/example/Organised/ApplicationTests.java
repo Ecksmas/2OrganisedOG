@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootTest
+/*@SpringBootTest
 class ApplicationTests {
 	@Autowired
 	RoomRepository repository;
@@ -23,4 +23,4 @@ class ApplicationTests {
 		Assertions.assertEquals("Garage", result);
 	}
 
-}
+}*/

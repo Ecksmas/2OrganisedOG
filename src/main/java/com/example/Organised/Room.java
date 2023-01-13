@@ -26,6 +26,10 @@ public class Room {
         this.id = id;
         this.room = room;
     }
+
+    public Room(String room) { //Ska raderas när databas flyttats och interface aktiverats.
+            this.room = room;
+    }
     public Room() {
 
     }

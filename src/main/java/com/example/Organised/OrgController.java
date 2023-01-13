@@ -12,18 +12,19 @@ import java.util.List;
 public class OrgController {
 
     @Autowired
-    RoomRepository repository;
+    OgRoomRepository repository;
 
     //Startsida
+    //FINDALLBYID
     @GetMapping("/")
     String homePage(Model model) {
-        List<Room> rooms = repository.getRooms();
+        List<Room> rooms = (List<Room>)repository.findAll();
         model.addAttribute("rooms", rooms);
         return "newHomePage";
     }
 
     //Rum-sida
-    @GetMapping("/room/{room}")
+   /* @GetMapping("/room/{room}")
     String roomPage(Model model, @PathVariable String room) {
         Room roomPick = repository.getRoom(room);
         model.addAttribute("room", roomPick);
@@ -51,7 +52,7 @@ public class OrgController {
     @PostMapping("/addItem")
     public String setItem(Model model, @RequestParam String room, @RequestParam String item) {
       Room roomItem = repository.getRoom(room);
-      roomItem.addItemToRoom(new Item(item));
+      roomItem.addItemToRoom(new Item()); //Tagit bort namn "item" pga ändring i constructorn.
       model.addAttribute("room", roomItem);
       return "newRoom";
     }
@@ -74,4 +75,5 @@ public class OrgController {
         return "redirect:/room/" + roomToDeleteFrom.getRoom();
 
     }
+    */
 }
