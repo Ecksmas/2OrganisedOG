@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>2 Organized - när du behöver ordning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--   FONT                                     ---------------------->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS & FAVICON                              ---------------------->
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/styleNew.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+<body>
+<center>
+<header>
+    <br>
+    <a href="/"><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
+    </a>
+</header>
+
+    <h1>Edit item</h1>
+
+    <form action="/saveEditedItem" method="POST">
+        <input type="hidden" name="item" th:value="${item.id}">
+        <input type="text" name="itemName" th:value="${item.itemName}"/>
+        <input type="submit" value="Save item">
+    </form>
+</center>
+</body>
+</html>
