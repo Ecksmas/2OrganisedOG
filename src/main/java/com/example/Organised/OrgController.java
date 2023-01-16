@@ -57,10 +57,7 @@ public class OrgController {
         return "redirect:/room/" + item.getRoom().getId(); //Skickar tillbaka till /room/{id}
     }
 
-    @GetMapping("editRoom")
-    public String editRoom (Model model, @PathVariable Long id){
 
-    }
 
 
 
