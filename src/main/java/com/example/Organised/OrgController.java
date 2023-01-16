@@ -71,6 +71,7 @@ public class OrgController {
         return "redirect:/room/" + room.getId();
     }
 
+
     @GetMapping("/delete/{id}")
     public String deleteRoom(@PathVariable Long id){
         repository.deleteById(id);
@@ -83,5 +84,4 @@ public class OrgController {
         itemRepository.deleteById(id);//Raderar Item.
         return "redirect:/room/" + item.getRoom().getId(); //Kommer tillbaka till rummet igen.
     }
-
 }
