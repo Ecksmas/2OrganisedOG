@@ -66,10 +66,24 @@ public class OrgController {
 
 
     @PostMapping("/editRoom")
-    public String editRoom(@ModelAttribute Room room){
+    public String saveEditedRoom(@ModelAttribute Room room){
         repository.save(room);
         return "redirect:/room/" + room.getId();
     }
+
+    @GetMapping("/editItem/{id}")
+    public String editItem(Model model, @PathVariable Long id){
+        Item item = itemRepository.findById(id).get();
+        model.addAttribute(item);
+        return "editItemForm";
+    }
+
+    @PostMapping("/saveEditedItem")
+    public String saveEditedItem(@ModelAttribute Item item){
+        itemRepository.save(item);
+        return "redirect:/room/" + item.getRoom().getId();
+    }
+
 
     @GetMapping("/delete/{id}")
     public String deleteRoom(@PathVariable Long id){

@@ -29,6 +29,8 @@
 
 </head>
 <body>
+
+<div class="container">
 <header>
     <br><center>
     <a href="/"><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
@@ -51,12 +53,14 @@
         <tr>
             <th>I det här rummet finns: </th>
             <th>&ensp;&ensp;&ensp;&ensp;</th>
+			<th>&ensp;&ensp;&ensp;&ensp;</th>
 		  </tr>
 	  </thead>
 	  <tbody>
 		  <tr th:each="item : ${room.itemList}"></th>
 			  <th th:text="${item.itemName}"></th>
 			  <th><a th:href="'/deleteItem/' + ${item.id}"><i class="material-icons" alt="Delete icon">delete</i></a></th>
+			  <th><a class="button" th:href="'/editItem/' + ${item.id}">Edit</a></th>
         </tr>
     </tbody>
 </table>
@@ -66,6 +70,8 @@
 	<a class="button" th:href="'/editRoom/' + ${room.id}">Edit room name</a>
     <a class="button" th:href="'/delete/' + ${room.id}">Delete room</a>
 </div></center>
+
+</div>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
