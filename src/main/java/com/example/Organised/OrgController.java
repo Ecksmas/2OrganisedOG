@@ -57,9 +57,19 @@ public class OrgController {
         return "redirect:/room/" + item.getRoom().getId(); //Skickar tillbaka till /room/{id}
     }
 
+    @GetMapping("/editRoom/{id}")
+    public String editRoom (Model model, @PathVariable Long id){
+        Room room = repository.findById(id).get();
+        model.addAttribute(room);
+        return "editRoom";
+    }
 
 
-
+    @PostMapping("/editRoom")
+    public String editRoom(@ModelAttribute Room room){
+        repository.save(room);
+        return "redirect:/room/" + room.getId();
+    }
 
     @GetMapping("/delete/{id}")
     public String deleteRoom(@PathVariable Long id){

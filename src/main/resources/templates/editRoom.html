@@ -33,19 +33,15 @@
     <br><center>
     <a href="/"><img src="../static/2 organized.png" th:src="'/2 organized.png'" width="10%">
         </a>
-    <h1 th:text="${room.roomName}">Room</h1></center>
+	<form action="/editRoom" method="POST">
+		<input type="hidden" name="room" th:value="${room.id}">
+		<input type="text" name="roomName" th:value="${room.roomName}"/>
+		<input type="submit" value="Edit item">
+	</form></center>
 </header>
 
-<!--FORM för att lägga till ett item i ett rum-->
-    <center>
-<form action="/saveItem" method="POST">
-    <input type="hidden" name="room" th:value="${room.id}">
-    <input type="text" name="itemName"/>
-    <input type="submit" value="Add item">
-</form>
-
-
         <!--TABLE visar alla items i rummet-->
+<center>
 <table class="u-full-width">
     <thead>
         <tr>
@@ -63,7 +59,6 @@
 
 
 <div>
-	<a class="button" th:href="'/editRoom/' + ${room.id}">Edit room name</a>
     <a class="button" th:href="'/delete/' + ${room.id}">Delete room</a>
 </div></center>
 
