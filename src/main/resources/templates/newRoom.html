@@ -49,23 +49,23 @@
 <table class="u-full-width">
     <thead>
         <tr>
-            <h4><th>I det här rummet finns: </th>
-            <th>&ensp;&ensp;&ensp;&ensp;</th></h4>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="item : ${room.itemList}"></th>
-            <th th:text="${item.itemName}"></th>
-         <!-- <th><a th:href="'/deleteItem?room=' + ${room.room} + '&' + 'item='+ ${item.item}"><i class="material-icons">delete</i></a></th>-->
+            <th>I det här rummet finns: </th>
+            <th>&ensp;&ensp;&ensp;&ensp;</th>
+		  </tr>
+	  </thead>
+	  <tbody>
+		  <tr th:each="item : ${room.itemList}"></th>
+			  <th th:text="${item.itemName}"></th>
+			  <th><a th:href="'/deleteItem/' + ${item.id}"><i class="material-icons" alt="Delete icon">delete</i></a></th>
+			 <!-- <th><a th:href="'/deleteItem?room=' + ${room.roomName} + '&' + 'item='+ ${item.item}"><i class="material-icons">delete</i></a></th>-->
         </tr>
     </tbody>
 </table>
 
-<!--
+
 <div>
-    <a class="button" th:href="'/delete?room=' + ${room.room}">Delete room</a>
+    <a class="button" th:href="'/delete/' + ${room.id}">Delete room</a>
 </div></center>
--->
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

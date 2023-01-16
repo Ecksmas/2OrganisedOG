@@ -6,14 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class OrgController {
-
     @Autowired
     private OgRoomRepository repository;
-
     @Autowired
     private ItemRepository itemRepository;
 
@@ -25,7 +22,6 @@ public class OrgController {
         return "newHomePage";
     }
 
-    //Rum-sida
    @GetMapping("/room/{id}")
     String roomPage(Model model, @PathVariable Long id) {
         Room room = repository.findById(id).get();
@@ -33,63 +29,52 @@ public class OrgController {
         return "newRoom";
     }
 
-    //Lägga till ett nytt rum på startsidan.
     @GetMapping("/add")
-    String add(Model model) {
+    String addRoom(Model model) {
         model.addAttribute("room", new Room());
         return "form";
     }
 
     @PostMapping("/save")
-    public String set(@ModelAttribute Room room) {
-            repository.save(room); // todo replace with call POST /book (with book object as json in request body)
+    public String saveRoom(@ModelAttribute Room room) {
+        repository.save(room);
         return "redirect:/";
     }
 
-    //Lägga till item till rum
     @GetMapping("/addItem")
-    public String addItem(Model model){
-        model.addAttribute("item", new Item());
+    public String add(Model model, @PathVariable Long id){
+        Room roomId = repository.findById(id).get(); //Hitta id:t på rummet
+        Item item1 = new Item(); //Skapa ett nytt objekt
+        item1.setRoom(roomId); // set Room idet på objektet, för att länka ihop.
+        model.addAttribute("room", roomId); //Skicka till thymeleaf
+        model.addAttribute("item", item1);//Skicka till thymeleaf
         return "newRoom";
     }
 
     @PostMapping("/saveItem")
-    public String setItem (@ModelAttribute Item item, @RequestParam Long id) {
-        Room roomId = repository.findById(id).get();
-        item.setRoom(roomId);
-        itemRepository.save(item);
-        return "newRoom";
+    public String saveItem (@ModelAttribute Item item){
+        itemRepository.save(item); //Sparar objektet
+        return "redirect:/room/" + item.getRoom().getId(); //Skickar tillbaka till /room/{id}
     }
 
-  /*  //Spara item till ett rum
-    @PostMapping("/saveItem")
-    public String setItem(Model model, @RequestParam String room, @RequestParam String item) { //Tagit bort String room från param och Long id i slutet.
-      Room roomId = repository.findById(id).get();
+    @GetMapping("editRoom")
+    public String editRoom (Model model, @PathVariable Long id){
 
-      itemRepository.save(itemName);
-      //Item item1 = new Item();
-      //roomId.addItemToRoom(new Item()); //Tagit bort namn "item" pga ändring i constructorn.
-      model.addAttribute("room", roomId);
-      return "redirect:/newRoom";
-    }*/
+    }
 
-/*
-    //Ta bort rum
-    @GetMapping("/delete")
-    public String deleteRoom(@RequestParam String room) {
-        Room delete = repository.getRoom(room);
-        repository.deleteRoom(delete);
+
+
+    @GetMapping("/delete/{id}")
+    public String deleteRoom(@PathVariable Long id){
+        repository.deleteById(id);
         return "redirect:/";
     }
 
-    //Ta bort items i resp rum.
-    @GetMapping("/deleteItem")
-    public String deleteItem(@RequestParam String room, @RequestParam String item) {
-        Room roomToDeleteFrom = repository.getRoom(room);
-        Item itemToDelete = roomToDeleteFrom.getItem(item);
-        roomToDeleteFrom.deleteItem(itemToDelete);
-        return "redirect:/room/" + roomToDeleteFrom.getRoom();
-
+    @GetMapping("/deleteItem/{id}")
+    public String deleteItem(@PathVariable Long id){
+        Item item = itemRepository.findById(id).get();//Hämtar id till rummet där item finns.
+        itemRepository.deleteById(id);//Raderar Item.
+        return "redirect:/room/" + item.getRoom().getId(); //Kommer tillbaka till rummet igen.
     }
-    */
+
 }

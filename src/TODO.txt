@@ -33,11 +33,11 @@ SPRINT 02 - Addera databas:
 - Lägga till databas till applikationen.
     1. JPA
         - CHECK - Lägga till entity (annotationer som id, generated value)
-        - Skapa ett interface och nya metoder som ersätter de befintliga i room repository.
-        - Autowirea det nya repository:et
+        - CHECK - Skapa ett interface och nya metoder som ersätter de befintliga i room repository.
+        - CHECK - Autowirea det nya repository:et
         - CHECK - Lägga till pom.xml
         - CHECK - Skapa en data.sql-fil med förutbestämda rooms och items.
-        - Lägga till koppling mellan tabeller (many-to-one osv).
+        - CHECK - Lägga till koppling mellan tabeller (many-to-one osv).
     2. Er-diagram
 
 
